@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="box">
+    <h2>Welcome to Dashboard</h2>
+    <p id="userEmail"></p>
+    <button onclick="logout()">Logout</button>
+</div>
+
+<script>
+    const email = localStorage.getItem("loggedInUser");
+    if (!email) {
+        window.location.href = "login.html";
+    } else {
+        document.getElementById("userEmail").innerText = "Logged in as: " + email;
+    }
+
+    function logout() {
+        localStorage.removeItem("loggedInUser");
+        window.location.href = "login.html";
+    }
+</script>
+</body>
+</html>
